@@ -247,10 +247,10 @@ class Storage {
         return [];
     }
 
-    async destroy (model, collection) {
-        await this.flush();
-        await this.store.removeItem(this.getItemName(model.id));
-        await this.removeCollectionReference(model, collection);
+    destroy (model, collection) {
+        this.flush();
+        this.store.removeItem(this.getItemName(model.id));
+        this.removeCollectionReference(model, collection);
         return model;
     }
 
